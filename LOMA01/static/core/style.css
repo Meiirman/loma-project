@@ -1,0 +1,101 @@
+th{
+	color: blue;
+	text-align: right;
+}
+input{
+	padding: 5px;
+	margin: 5px;
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+}
+input[type=submit]{
+	align-self: center;
+    background-color: #2d4bf0;
+    border-radius: 10px;
+    color: #F2F2F2;
+    font-size: 1.2rem;
+    padding: 5px 20px ;
+    text-align: center;
+    width: 12rem;
+}
+select{
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	background: rgba(0,0,0,0.5);
+}
+
+
+form{
+	width: 300px;
+	margin:  150px auto;
+	border: 1px solid silver;
+	padding: 50px;
+	background: #fff;
+}
+body{
+	background-color: rgb(102 177 239);
+}
+h3{
+	text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2d4bf0;
+    padding: 30px 0;
+}
+
+
+
+
+
+
+
+
+
+
+main>div{
+	margin: 50px auto!important;
+	width: 500px!important;
+	height: 520px!important;
+	border: 1px solid silver;
+	background-color: #fff!important;
+}
+
+
+
+label a{
+    align-self: center;
+    background-color: #2d4bf0;
+    border-radius: 10px;
+    color: #F2F2F2;
+    font-size: 1.2rem;
+    padding: 5px 20px ;
+    text-align: center;
+    width: 12rem;
+}
+
+label{
+	margin: 3px;
+	padding: 3px;
+}
+label p span{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+label p{
+	font-size: 20px;
+	width: 500px;
+	text-align: left;
+}
+
+main a{
+	margin-top: 50px!important;
+    align-self: center;
+    background-color: #2d4bf0;
+    border-radius: 10px;
+    color: #F2F2F2;
+    font-size: 1.2rem;
+    padding: 5px 20px ;
+    text-align: center;
+}

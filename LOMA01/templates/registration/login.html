@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+  <link rel="stylesheet" type="text/css" href='{% static "core/css.css" %}'>
+</head>
+<body>
+<div class="form-container">
+
+
+
+
+
+  <form class='form' method="post" action="{% url 'login' %}">
+    
+    <h1>Вход в систему</h1>
+    
+    {% if form.errors %}<p id="wrong">*Введен неверный логин или пароль</p>{% endif %}
+
+    {% csrf_token %}
+
+    <p>Имя пользователя</p>
+
+    {{form.username}}
+    
+    <p>Пароль:</p>
+    
+    {{form.password}}
+    <!-- <p>Создавая учетную запись, вы соглашаетесь с нашими  <a href=""> условиями и политикой конфиденциальности</a>.</p> -->
+    <button type="submit" value="login" id="email">Войти</button>
+
+    <p>У вас нет учетной записи? <a href="{% url 'reg' %}">Зарегистрируйтесь</a></p>
+
+  </form>
+
+
+
+</div>
+</body>
+</html>
