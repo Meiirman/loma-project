@@ -1,1 +1,0 @@
-from telegrambot.bot_views.login import LoginBotView  # NOQA
