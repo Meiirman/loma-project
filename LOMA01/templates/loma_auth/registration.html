@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+  <link rel="stylesheet" type="text/css" href='{% static "core/css.css" %}'>
+</head>
+<body>
+<div class="form-container">
+
+
+
+
+
+  <div class='form' method="GET">
+    
+    <h1>Регистрация</h1>
+    
+	{% if data.error.bool %}<p id="wrong">*{{data.error.context}}</p>{% endif %}
+	<p>Имя пользователя</p>
+	<input type="text" id="user_name" required>
+	<p>Электронная почта</p>
+	<input type="email" id="user_email" required>
+	<p>Пароль</p>
+	<input type="password" id="user_password" required>
+	<p>Подтверждение пароля</p>
+	<input type="password" id="user_password_re" required>
+    <p>Создавая учетную запись, вы соглашаетесь с нашими  <a href=""> условиями и политикой конфиденциальности</a>.</p>
+
+
+    <button onclick="submite()" value="login" id="email">Регистрация</button>
+
+    <p>У вас уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+
+  </div>
+  <script type="text/javascript" >
+		function submite(){
+
+			var user_name = document.getElementById("user_name").value
+			var user_email = document.getElementById("user_email").value
+			var user_password = document.getElementById("user_password").value
+			var user_password_re = document.getElementById("user_password_re").value
+			
+			if(user_name==""){
+				alert("Это поле не может быть пустым\n\n\" Имя пользователя \"")
+			}
+			else if(user_email==""){
+				alert("Это поле не может быть пустым\n\n\" Электронная почта \"")
+			}
+			else if(user_password==""){
+				alert("Это поле не может быть пустым\n\n\" Пароль \"")
+			}
+			
+			else if(user_password_re==""){
+				alert("Это поле не может быть пустым\n\n\" Подтверждение пароля \"")
+			}
+	
+			x = `/reg/submite/?user_name=${user_name}&user_email=${user_email}&user_password=${user_password}&user_password_re=${user_password_re}`
+			alert(x)
+			if(user_password==user_password_re && user_password != ''){
+				location.href = x
+			}
+			else{
+				confirm('Пароли не совпадают')
+				document.getElementById("user_password").value = ''
+				document.getElementById("user_password_re").value = ''	
+				return 0
+			}
+		}
+	</script>
+
+</div>
+</body>
+</html>

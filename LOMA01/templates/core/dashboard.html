@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{data.doc_title}}</title>
+    <!-- <link rel="stylesheet" type="text/css" href='{% static "core/table.css" %}'> -->
+    <!-- <link rel="stylesheet" type="text/css" href='{% static "core/index.css" %}'> -->
+
+</head>
+<body style="background-image:url('{{ backgroundimg.url }}'); background-size: cover;"> 
+
+	<header>
+        <nav class="navbar">
+            <div class="logo"><a href="{% url 'home' %}" target="_blank" rel="noopener noreferrer"><span class="l-initial">LO</span>MA</a></div>
+            <div class="nav-link">
+				<ul>
+					{% comment %} <li><a href="/home">Home</a></li> {% endcomment %}
+					<!-- <li><a href="/dashboard">Dashboard</a></li> -->
+					<li><a href="/orders">Order</a></li>
+					<li><a href="/couriers">Curiers</a></li>
+					<li><a href="/products">Products</a></li>
+				  </ul>
+            </div>
+            <div class="cta-btn">
+                {% if user.is_authenticated %}
+                    <button class="btn p-btn">{{ user.get_username }}</button>
+                    {% comment %} <li>User: {{ user.get_username }}</li> {% endcomment %}
+                    <button class="btn s-btn" onclick=location.href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                {% else %}
+                    <button class="btn s-btn" onclick="reg() ">Login</button>
+                    <button class="btn p-btn" onclick="auth() ">Sign-Up</button>           
+                    <script type="text/javascript">
+                        function reg()  { location.href='/auth/login'}
+                        function auth() { location.href='/reg'}
+                    </script>
+                {% endif %} 
+            </div>
+        </nav>
+</header>
+<main>
+    {% if user.is_authenticated %}
+
+
+
+<!-- Основное начало -->
+
+<style>
+	.my-block{
+		border: 1px solid silver;
+		margin: 50px;
+		padding: 15px;
+
+	}
+</style>
+<div class="my-block">
+	<div class="orders"></div>
+	<div class="couriers"></div>
+	<div class="products"></div>
+</div>
+
+
+<!-- Основное конец-->
+
+
+
+    {% else %}
+
+        <h1>Вы не были авторизованы</h1>
+        <button class="btn p-btn" onclick="auth() ">Sign-Up</button>
+        
+        <script type="text/javascript">
+            function auth()  { location.href='/auth/login'}
+            function reg() { location.href='/reg'}
+        </script>
+
+    {% endif %} 
+</main>
+
+
+</body>
+</html>
+
+
+
+
+
